@@ -1,0 +1,3 @@
+Para meter un dato por pantalla en la clausula where, cuando pongamos
+por ejemplo WHERE ID_SOCIO=&(ponemos el aspersan)nombrevariable
+
