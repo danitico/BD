@@ -1,0 +1,11 @@
+SET SERVEROUTPUT ON
+DECLARE
+    cadena VARCHAR2(24);
+BEGIN
+    SELECT NOMBRE
+    INTO cadena
+    FROM JUGADORES
+    WHERE GLOBAL=(SELECT MAX(GLOBAL) FROM JUGADORES);
+    DBMS_OUTPUT.PUT_LINE('El jugador con más media es ' || cadena);
+END;
+/
