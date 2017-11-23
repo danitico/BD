@@ -1,4 +1,3 @@
-SET SERVEROUTPUT ON
 DECLARE 
     fisico_ number(3);
 BEGIN
@@ -9,6 +8,5 @@ BEGIN
     UPDATE JUGADORES
     SET FISICO=fisico_ + 1
     where GLOBAL=(SELECT MAX(GLOBAL) FROM JUGADORES);
-    DBMS_OUTPUT.PUT_LINE('HEY ---> ' || fisico_);
 END;
 /

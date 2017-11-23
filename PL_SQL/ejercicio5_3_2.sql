@@ -1,0 +1,25 @@
+ACCEPT pseudovar PROMPT 'Introduzca el nombre del jugador'
+DECLARE
+    ID_ VARCHAR2(24);
+    POSICION_ VARCHAR2(3);
+    GLOBAL_ NUMBER(3);
+    RITMO_ NUMBER(3);
+    TIRO_ NUMBER(3);
+    PASE_ NUMBER(3);
+    REGATE_ NUMBER(3);
+    DEFENSA_ NUMBER(3);
+    FISICO_ NUMBER(3);
+BEGIN 
+    SELECT MIN(GLOBAL), MIN(RITMO), MIN(TIRO), MIN(PASE), MIN(REGATE), MIN(DEFENSA), MIN(FISICO)
+    INTO GLOBAL_, RITMO_, TIRO_, PASE_, REGATE_, DEFENSA_, FISICO_
+    FROM JUGADORES;
+    SELECT POSICION
+    INTO POSICION_
+    FROM JUGADORES
+    WHERE GLOBAL=GLOBAL_;
+    INSERT INTO JUGADORES VALUES('WORST', 'MINI-' || '&pseudovar',
+                                 POSICION_, GLOBAL_, RITMO_,
+                                 TIRO_, PASE_, REGATE_,
+                                 DEFENSA_, FISICO_);
+END;
+/

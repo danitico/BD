@@ -1,0 +1,10 @@
+DECLARE
+    global_ number(3);
+BEGIN
+    SELECT MIN(GLOBAL)
+    INTO global_
+    FROM JUGADORES;
+    DELETE FROM JUGADORES
+    WHERE GLOBAL=global_;
+END;
+/
